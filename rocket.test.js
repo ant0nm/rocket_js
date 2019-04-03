@@ -81,7 +81,25 @@ describe('Rocket', () => {
   });
 
   describe('status', () => {
-    // no need to test this method, as it is very simple
+    test("returns a message that the rocket is flying if the flying property is set to true", () => {
+      // arrange
+      const rocket = new Rocket();
+      rocket.flying = true;
+      // act
+      const result = rocket.status();
+      // assert
+      expect(result).toContain('flying');
+    });
+
+    test("returns a message that the rocket is ready for liftoff if the flying property is set to false", () => {
+      // arrange
+      const rocket = new Rocket();
+      // act
+      const result = rocket.status();
+      // assert
+      expect(result).toContain('liftoff');
+    });
+
   });
 
   describe('sendCodedSignal', () => {
